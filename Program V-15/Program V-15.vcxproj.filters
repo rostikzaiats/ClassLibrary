@@ -21,12 +21,18 @@
     <ClInclude Include="Wine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="WineBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Wine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="packagedWine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WineBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

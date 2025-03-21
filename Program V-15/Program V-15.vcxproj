@@ -130,10 +130,12 @@
   <ItemGroup>
     <ClInclude Include="packagedWine.h" />
     <ClInclude Include="Wine.h" />
+    <ClInclude Include="WineBox.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="packagedWine.cpp" />
     <ClCompile Include="Wine.cpp" />
+    <ClCompile Include="WineBox.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
