@@ -45,7 +45,7 @@ void WineBox::loadFromFile(const string& filename)
 	ifstream file(filename);
 	string name, color, swetness;
 	double strength, volume;
-	while (file >> name >> color >> swetness >> strength, volume)
+	while (file >> name >> color >> swetness >> strength >> volume)
 	{
 		addW(name, color, swetness, strength, volume);
 	}
@@ -68,10 +68,12 @@ void WineBox::sortByStrenght()
 
 void WineBox::printW()
 {
-	
+	for (size_t i = 0; i < wines_number; i++)
+	{
+		wines[i].printOn(cout); cout << endl;
+	}
 }
 
 double WineBox::totalVolumeByColor(const string& color) const
-{
-	return 0.0;
+{   
 }
