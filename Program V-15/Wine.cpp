@@ -8,4 +8,5 @@ Wine::Wine(const string& name, const string& color, const string& swetness, doub
 Wine::Wine(const Wine& P) : w_name(P.w_name), w_color(P.w_color), w_swetness(P.w_swetness), 
 w_strength(P.w_strength){}
 
-Wine::~Wine(){}
+Wine::~Wine(){
+}

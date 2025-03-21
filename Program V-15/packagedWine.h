@@ -2,7 +2,7 @@
 #include "Wine.h"
 #include <string>
 
-Class PackagedWine : public Wine
+class PackagedWine : public Wine
 {
 private:
 	double pacW_volume;
@@ -14,5 +14,5 @@ public:
 	PackagedWine(const PackagedWine& P);
 	virtual ~PackagedWine();
 
-	
-}
+
+};
