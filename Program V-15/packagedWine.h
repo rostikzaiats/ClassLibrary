@@ -14,5 +14,7 @@ public:
 	PackagedWine(const PackagedWine& P);
 	virtual ~PackagedWine();
 
+	void printOn(ostream&);
+	void chaneCont(string pacW_container);
 	
 }
