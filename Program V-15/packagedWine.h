@@ -5,8 +5,8 @@
 Class PackagedWine : public Wine
 {
 private:
-	double volume;
-	string container;
+	double pacW_volume;
+	string pacW_container;
 
 public:
 	PackagedWine();
