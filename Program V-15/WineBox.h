@@ -15,8 +15,8 @@ private:
 
 public:
 	WineBox();
-	WineBox(int number, int capacity);
-	WineBox(WineBox& WB);
+	WineBox(int capacity);
+	WineBox(const WineBox& WB);
 	~WineBox();
 
 	void addW(const string& name, const string& color, const string& swetness, double strength, double volume);

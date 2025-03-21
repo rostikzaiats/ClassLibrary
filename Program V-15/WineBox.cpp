@@ -14,15 +14,20 @@ void WineBox::extensions()
 
 WineBox::WineBox() : wines_number(0), wines_capacity(10)
 {
-	wines = new PackagedWine[wines_capacity];
 }
 
-WineBox::WineBox(int number, int capacity) : wines_number(number) , wines_capacity(capacity)
+WineBox::WineBox(int capacity) :wines_capacity(capacity)
 {
+	wines[capacity];
 }
 
-WineBox::WineBox(WineBox& WB) : wines_number(WB.wines_number), wines_capacity(WB.wines_capacity)
+WineBox::WineBox(const WineBox& WB) : wines_number(WB.wines_number), wines_capacity(WB.wines_capacity)
 {
+	wines[WB.wines_capacity];
+	for (size_t i = 0; i < WB.wines_number; i++)
+	{
+		wines[i] = WB.wines[i];
+	}
 }
 
 WineBox::~WineBox()
@@ -34,7 +39,7 @@ void WineBox::addW(const string& name, const string& color, const string& swetne
 {
 	if (wines_number > wines_capacity)
 	{
-		exception();
+		extensions();
 	}
 	wines[wines_number] = PackagedWine(name, color, swetness, strength, volume);
 	wines_number++;
