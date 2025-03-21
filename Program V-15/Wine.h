@@ -18,10 +18,9 @@ public:
 	Wine(const string& name, const string& color, const string& swetness, double strength);
 	Wine(const Wine& P);
 	virtual ~Wine();
+	virtual void printOn(ostream& os)const;
+	virtual bool checkWine(const string& Parametr)const;
+	virtual bool checkWine(double Parametr)const;
+    virtual bool operator <(const Wine& other)const;
 
-	bool checkWine(const string& is_wine)const;
-
-	bool operator <(const Wine& other)const;
-
-	void printON(ostream& os)const;
 };
