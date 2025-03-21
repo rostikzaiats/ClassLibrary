@@ -23,7 +23,8 @@ public:
 	void loadFromFile(const string& filename);
 	void sortByStrenght();
 	void printW();
-	double totalVolumeByColor(const string& color) const;
+	double totalVolume(const string& swetness) const;
+	double totalVolume(double strength) const;
 
 
 };

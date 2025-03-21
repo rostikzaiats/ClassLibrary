@@ -74,6 +74,28 @@ void WineBox::printW()
 	}
 }
 
-double WineBox::totalVolumeByColor(const string& color) const
-{   
+double WineBox::totalVolume(const string& swetness) const
+{
+	double totalVolume = 0.0;
+	for (int i = 0; i < wines_number; i++)
+	{
+		if (wines[i].checkWine(swetness))
+		{
+			totalVolume += wines[i].getVolume();
+		}
+	}
+	return totalVolume;
+}
+
+double WineBox::totalVolume(double strength) const
+{
+	double totalVolume = 0.0;
+	for (int i = 0; i < wines_number; i++)
+	{
+		if (wines[i].checkWine(strength))
+		{
+			totalVolume += wines[i].getVolume();
+		}
+	}
+	return totalVolume;
 }

@@ -39,3 +39,8 @@ PackagedWine PackagedWine::operator/(double n)
   this->pacW_volume = pacW_volume / n;
    return *this;
 }
+
+double PackagedWine::getVolume()
+{
+	return this->pacW_volume;
+}
