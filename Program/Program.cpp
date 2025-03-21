@@ -1,4 +1,4 @@
-#include"..\Program V-15\Clases.h"
+#include"..\Program V-15\Wine.h"
 #include <iostream>
 
 int main()

@@ -131,6 +131,9 @@
     <ClInclude Include="packagedWine.h" />
     <ClInclude Include="Wine.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Wine.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
