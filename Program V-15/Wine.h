@@ -22,11 +22,3 @@ public:
 
 
 };
-
-Wine::Wine()
-{
-}
-
-Wine::~Wine()
-{
-}
