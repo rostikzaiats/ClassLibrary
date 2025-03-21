@@ -36,6 +36,12 @@ void PackagedWine::changePackage()
 
 PackagedWine PackagedWine::operator/(double n)
 {
+	if (n == 0) { throw("Determinant can't be 0!"); }
   this->pacW_volume = pacW_volume / n;
    return *this;
+}
+
+double PackagedWine::getVolume()
+{
+	return this->pacW_volume;
 }

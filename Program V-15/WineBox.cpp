@@ -14,15 +14,20 @@ void WineBox::extensions()
 
 WineBox::WineBox() : wines_number(0), wines_capacity(10)
 {
-	wines = new PackagedWine[wines_capacity];
 }
 
-WineBox::WineBox(int number, int capacity) : wines_number(number) , wines_capacity(capacity)
+WineBox::WineBox(int capacity) :wines_capacity(capacity)
 {
+	wines[capacity];
 }
 
-WineBox::WineBox(WineBox& WB) : wines_number(WB.wines_number), wines_capacity(WB.wines_capacity)
+WineBox::WineBox(const WineBox& WB) : wines_number(WB.wines_number), wines_capacity(WB.wines_capacity)
 {
+	wines[WB.wines_capacity];
+	for (size_t i = 0; i < WB.wines_number; i++)
+	{
+		wines[i] = WB.wines[i];
+	}
 }
 
 WineBox::~WineBox()
@@ -34,7 +39,7 @@ void WineBox::addW(const string& name, const string& color, const string& swetne
 {
 	if (wines_number > wines_capacity)
 	{
-		exception();
+		extensions();
 	}
 	wines[wines_number] = PackagedWine(name, color, swetness, strength, volume);
 	wines_number++;
@@ -45,7 +50,7 @@ void WineBox::loadFromFile(const string& filename)
 	ifstream file(filename);
 	string name, color, swetness;
 	double strength, volume;
-	while (file >> name >> color >> swetness >> strength, volume)
+	while (file >> name >> color >> swetness >> strength >> volume)
 	{
 		addW(name, color, swetness, strength, volume);
 	}
@@ -68,10 +73,34 @@ void WineBox::sortByStrenght()
 
 void WineBox::printW()
 {
-	
+	for (size_t i = 0; i < wines_number; i++)
+	{
+		wines[i].printOn(cout); cout << endl;
+	}
 }
 
-double WineBox::totalVolumeByColor(const string& color) const
+double WineBox::totalVolume(const string& swetness) const
 {
-	return 0.0;
+	double totalVolume = 0.0;
+	for (int i = 0; i < wines_number; i++)
+	{
+		if (wines[i].checkWine(swetness))
+		{
+			totalVolume += wines[i].getVolume();
+		}
+	}
+	return totalVolume;
+}
+
+double WineBox::totalVolume(double strength) const
+{
+	double totalVolume = 0.0;
+	for (int i = 0; i < wines_number; i++)
+	{
+		if (wines[i].checkWine(strength))
+		{
+			totalVolume += wines[i].getVolume();
+		}
+	}
+	return totalVolume;
 }

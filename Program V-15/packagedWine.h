@@ -19,4 +19,5 @@ public:
 	virtual void printOn(ostream& os)const override;
 	void changePackage();
 	PackagedWine operator/(double n);
+	double getVolume();
 };
