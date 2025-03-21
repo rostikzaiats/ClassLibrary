@@ -18,5 +18,8 @@
     <ClInclude Include="Clases.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="packagedWine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
