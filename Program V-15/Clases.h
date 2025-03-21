@@ -17,5 +17,5 @@ Wine::Wine()
 
 Wine::~Wine()
 {
+
 }
-void getWineQuantiti();
