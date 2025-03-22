@@ -22,7 +22,7 @@ public:
 	void addW(const string& name, const string& color, const string& swetness, double strength, double volume);
 	void loadFromFile(const string& filename);
 	void sortByStrenght();
-	void printW();
+	void printW(ostream& os);
 	double totalVolume(const string& swetness) const;
 	double totalVolume(double strength) const;
 

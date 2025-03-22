@@ -14,6 +14,7 @@ void WineBox::extensions()
 
 WineBox::WineBox() : wines_number(0), wines_capacity(10)
 {
+	wines = new PackagedWine[wines_capacity];
 }
 
 WineBox::WineBox(int capacity) :wines_capacity(capacity)
@@ -71,11 +72,11 @@ void WineBox::sortByStrenght()
    }
 }
 
-void WineBox::printW()
+void WineBox::printW(ostream& os)
 {
 	for (size_t i = 0; i < wines_number; i++)
 	{
-		wines[i].printOn(cout); cout << endl;
+		wines[i].printOn(os); os << endl;
 	}
 }
 

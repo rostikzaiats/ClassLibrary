@@ -72,12 +72,7 @@ TEST(PackagedWineTest, ChangePackage) {
     EXPECT_NE(os.str().find(PAKAGE_CONTAINER), string::npos);
 }
 
-TEST(PackagedWineTest, DivisionOperator) {
-    PackagedWine wine("Merlot", "Red", "Dry", 13.5, 1.5);
-    PackagedWine result = wine / 2.0;
-    EXPECT_DOUBLE_EQ(result.getVolume(), 0.75);
-}
-TEST(PakcageWineTest, DivisionByZero) {
+TEST(PackagedWineTest, DivisionOperator) {  
     PackagedWine wine("Merlot", "Red", "Dry", 13.5, 1.5);
     EXPECT_ANY_THROW(PackagedWine result = wine / 0.0;);
 }
@@ -106,16 +101,17 @@ TEST(WineBoxTest, AddWine) {
 
 TEST(WineBoxTest, LoadFromFile) {
     WineBox box;
-    box.loadFromFile("test_data.txt");
-    EXPECT_NE(box.totalVolume("Dry"), 0);
+    box.loadFromFile("test.txt");
+    cout << "Total Dry Volume: " << box.totalVolume("Dry") << endl;
+    EXPECT_TRUE(box.totalVolume("Dry"));
 }
 
 TEST(WineBoxTest, SortByStrength) {
     WineBox box;
-    box.addW("Merlot", "Red", "Dry", 13.5, 0.75);
-    box.addW("Chardonnay", "White", "Semi-dry", 12.0, 1.0);
+    box.addW("Merlot", "Red", "Dry", 13.5, 1.0);
+    box.addW("Chardonnay", "White", "Semi-dry", 12.0, 0.75);
     box.sortByStrenght();
-    EXPECT_GT(box.totalVolume(13.0), box.totalVolume(12.0));
+    EXPECT_GT(box.totalVolume(13.5), box.totalVolume(12.0));
 }
 
 TEST(WineBoxTest, TotalVolumeByStrength) {

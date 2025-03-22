@@ -36,7 +36,7 @@ int main()
     wineBox.addW("Merlot", "Red", "Dry", 14.0, 2.0);
 
     cout << "All wines in the box:" << endl;
-    wineBox.printW();
+    wineBox.printW(cout);
     cout << endl;
 
 
@@ -48,7 +48,7 @@ int main()
 
     wineBox.sortByStrenght();
     cout << "Wines sorted by strength:" << endl;
-    wineBox.printW();
+    wineBox.printW(cout);
    
 
 
