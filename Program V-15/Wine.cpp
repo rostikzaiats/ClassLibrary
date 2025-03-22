@@ -13,7 +13,7 @@ Wine::~Wine(){
 
 void Wine::printOn(ostream& os) const
 {
-	cout << w_name << " (" << w_color << ',' << w_swetness << ") " << w_strength << '%';
+	os << w_name << " (" << w_color << ',' << w_swetness << ") " << w_strength << '%';
 }
 
 bool Wine::checkWine(const string& Parametr) const

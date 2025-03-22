@@ -14,7 +14,7 @@ PackagedWine::~PackagedWine()
 
 void PackagedWine::printOn(ostream& os) const
 {
-	Wine::printOn(os); cout << ". " << pacW_volume << "L. in " << pacW_package << " pack.";
+	Wine::printOn(os); os << ". " << pacW_volume << "L. in " << pacW_package << " pack.";
 }
 
 void PackagedWine::changePackage()

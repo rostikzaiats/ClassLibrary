@@ -17,13 +17,10 @@ TEST(WineTest, ParameterizedConstructor) {
     ostringstream os;
     wine.printOn(os);
     string output = os.str();
+    EXPECT_NE(output.find("Red"), string::npos);
+    EXPECT_NE(output.find("Dry"), string::npos);
+    EXPECT_NE(output.find("13.5"), string::npos);
 }
-EXPECT_NE(output.find("Merlot"), string::npos);
-EXPECT_NE(output.find("Red"), string::npos);
-EXPECT_NE(output.find("Dry"), string::npos);
-EXPECT_NE(output.find("13.5"), string::npos);
-}
-
 
 TEST(WineTest, comprasionOperator) {
     Wine wine1("Merlot", "Red", "Dry", 13.5);
@@ -33,7 +30,7 @@ TEST(WineTest, comprasionOperator) {
 
 TEST(WineTest, CheckWineSwetness) {
     Wine wine("Merlot", "Red", "Dry", 13.5);
-    EXPECT_TRUE(wine.checkWine("Merlot"));
+    EXPECT_TRUE(wine.checkWine("Dry"));
 }
 
 
@@ -51,6 +48,7 @@ TEST(PackagedWineTest, DefaultConstructor) {
     PackagedWine wine;
     ostringstream os;
     wine.printOn(os);
+
     EXPECT_FALSE(os.str().empty());
 }
 
@@ -71,7 +69,7 @@ TEST(PackagedWineTest, ChangePackage) {
     wine.changePackage();
     ostringstream os;
     wine.printOn(os);
-    EXPECT_NE(os.str().find(GLASS_CONTAINER), string::npos);
+    EXPECT_NE(os.str().find(PAKAGE_CONTAINER), string::npos);
 }
 
 TEST(PackagedWineTest, DivisionOperator) {
@@ -79,7 +77,10 @@ TEST(PackagedWineTest, DivisionOperator) {
     PackagedWine result = wine / 2.0;
     EXPECT_DOUBLE_EQ(result.getVolume(), 0.75);
 }
-
+TEST(PakcageWineTest, DivisionByZero) {
+    PackagedWine wine("Merlot", "Red", "Dry", 13.5, 1.5);
+    EXPECT_ANY_THROW(PackagedWine result = wine / 0.0;);
+}
 TEST(PackagedWineTest, GetVolume) {
     PackagedWine wine("Merlot", "Red", "Dry", 13.5, 0.75);
     EXPECT_DOUBLE_EQ(wine.getVolume(), 0.75);
