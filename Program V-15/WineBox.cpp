@@ -37,7 +37,7 @@ WineBox::~WineBox()
 
 void WineBox::addW(const string& name, const string& color, const string& swetness, double strength, double volume)
 {
-	if (wines_number > wines_capacity)
+	if (wines_number >= wines_capacity)
 	{
 		extensions();
 	}

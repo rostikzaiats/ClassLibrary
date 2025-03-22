@@ -1,0 +1,10 @@
+Chardonnay White Dry 12.0 0.75
+Merlot Red Dry 14.0 1.5
+Cabernet Red Sweet 13.5 1.0
+Sauvignon Blanc-White Semi-Dry 11.5 0.75
+Pinot Noir-Red Dry 13.0 1.2
+Riesling White Sweet 10.5 0.5
+Syrah Red Semi-Sweet 13.8 1.5
+Zinfandel Red Dry 14.2 2.0
+Moscato White Sweet 9.0 0.75
+Malbec Red Dry 14.5 1.0
