@@ -4,11 +4,6 @@
 #include"..\Program V-15\WineBox.h"
 
 using namespace std;
-TEST(TestCaseName, TestName) {
-    EXPECT_EQ(1, 1);
-    EXPECT_TRUE(true);
-}
-
 // Test Wine.h
 TEST(WineTest, DefaultConstructor) {
     Wine wine;
