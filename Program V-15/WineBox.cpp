@@ -18,12 +18,12 @@ WineBox::WineBox() : wines_number(0), wines_capacity(10)
 
 WineBox::WineBox(int capacity) :wines_capacity(capacity)
 {
-	wines[capacity];
+	wines= new PackagedWine[capacity];
 }
 
 WineBox::WineBox(const WineBox& WB) : wines_number(WB.wines_number), wines_capacity(WB.wines_capacity)
 {
-	wines[WB.wines_capacity];
+	wines = new PackagedWine[WB.wines_capacity];
 	for (size_t i = 0; i < WB.wines_number; i++)
 	{
 		wines[i] = WB.wines[i];

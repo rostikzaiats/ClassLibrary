@@ -10,38 +10,38 @@ PackagedWine::PackagedWine(const PackagedWine& P) : Wine(P), pacW_volume(P.pacW_
 pacW_package(P.pacW_package) {}
 
 PackagedWine::~PackagedWine()
-{
-}
+{}
 
 void PackagedWine::printOn(ostream& os) const
 {
-	Wine::printOn(os); cout << '.' << pacW_volume << " in" << pacW_package << " pack.";
+	Wine::printOn(os); cout << ". " << pacW_volume << "L. in " << pacW_package << " pack.";
 }
 
 void PackagedWine::changePackage()
 {
-	if (this->pacW_package == GLASS_CONTAINER)
+	if (pacW_package == GLASS_CONTAINER)
 	{
 		pacW_package = PAKAGE_CONTAINER;
 	}
-	else if(this->pacW_package == PAKAGE_CONTAINER)
+	else if(pacW_package == PAKAGE_CONTAINER)
 	{
 		pacW_package = GLASS_CONTAINER;
 	}
 	else
 	{
-		throw("BAD PAKAGE");
+		throw runtime_error("Invalid package type");
 	}
 }
 
 PackagedWine PackagedWine::operator/(double n)
 {
-	if (n == 0) { throw("Determinant can't be 0!"); }
-  this->pacW_volume = pacW_volume / n;
-   return *this;
+	if (n == 0) { throw runtime_error("Division by 0"); }
+	PackagedWine result(*this); 
+	result.pacW_volume /= n;    
+	return result;
 }
 
 double PackagedWine::getVolume()
 {
-	return this->pacW_volume;
+	return pacW_volume;
 }
