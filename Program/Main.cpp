@@ -29,7 +29,7 @@ int main()
     packagedWine1.printOn(cout);
     cout << endl;
 
-    WineBox wineBox(0, 5); 
+    WineBox wineBox(5); 
     wineBox.addW("Chardonnay", "White", "Dry", 12.0, 1.0);
     wineBox.addW("Pinot Noir", "Red", "Dry", 13.0, 1.5);
     wineBox.addW("Sauvignon Blanc", "White", "Sweet", 11.5, 0.75);
@@ -41,7 +41,7 @@ int main()
 
    
     string color = "Red";
-    double totalVolume = wineBox.totalVolumeByColor(color);
+    double totalVolume = wineBox.totalVolume(color);
     cout << "Total volume of " << color << " wines: " << totalVolume << " liters" << endl;
 
     wineBox.loadFromFile("Wine.txt");  
