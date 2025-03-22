@@ -14,7 +14,7 @@ TEST(WineTest, DefaultConstructor) {
     Wine wine;
     ostringstream os;
     wine.printOn(os);
-    EXPECT_FALSE(os.str().empty())
+    EXPECT_FALSE(os.str().empty());
 }
 
 
@@ -34,15 +34,15 @@ EXPECT_NE(output.find("13.5"), string::npos);
 TEST(WineTest, comprasionOperator) {
     Wine wine1("Merlot", "Red", "Dry", 13.5);
     Wine wine2("Chardonnay", "White", "Dry", 12.0);
-    EXPECT_TRUE(wine2 < wine1)
+    EXPECT_TRUE(wine2 < wine1);
 }
 
 TEST(WineTest, CheckWineSwetness) {
     Wine wine("Merlot", "Red", "Dry", 13.5);
-    EXPECT_TRUE(wine.checkWine("Merlot"))
+    EXPECT_TRUE(wine.checkWine("Merlot"));
 }
 
 TEST(WineTest, CheckWineStrength) {
     Wine wine("Merlot", "Red", "Dry", 13.5);
-    EXPECT_TRUE(wine.checkWine(13.5))
+    EXPECT_TRUE(wine.checkWine(13.5));
 }
