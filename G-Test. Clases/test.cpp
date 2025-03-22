@@ -86,3 +86,41 @@ TEST(PackagedWineTest, GetVolume) {
     EXPECT_DOUBLE_EQ(wine.getVolume(), 0.75);
 }
 
+// Test WineBox.h
+
+TEST(WineBoxTest, DefaultConstructor) {
+    WineBox box;
+    EXPECT_EQ(box.totalVolume("Dry"), 0);
+}
+
+TEST(WineBoxTest, ParameterizedConstructor) {
+    WineBox box(5);
+    EXPECT_EQ(box.totalVolume("Dry"), 0);
+}
+
+TEST(WineBoxTest, AddWine) {
+    WineBox box;
+    box.addW("Merlot", "Red", "Dry", 13.5, 0.75);
+    EXPECT_NE(box.totalVolume("Dry"), 0);
+}
+
+TEST(WineBoxTest, LoadFromFile) {
+    WineBox box;
+    box.loadFromFile("test_data.txt");
+    EXPECT_NE(box.totalVolume("Dry"), 0);
+}
+
+TEST(WineBoxTest, SortByStrength) {
+    WineBox box;
+    box.addW("Merlot", "Red", "Dry", 13.5, 0.75);
+    box.addW("Chardonnay", "White", "Semi-dry", 12.0, 1.0);
+    box.sortByStrenght();
+    EXPECT_GT(box.totalVolume(13.0), box.totalVolume(12.0));
+}
+
+TEST(WineBoxTest, TotalVolumeByStrength) {
+    WineBox box;
+    box.addW("Merlot", "Red", "Dry", 13.5, 0.75);
+    box.addW("Chardonnay", "White", "Semi-dry", 12.0, 1.0);
+    EXPECT_DOUBLE_EQ(box.totalVolume(13.5), 0.75);
+}
