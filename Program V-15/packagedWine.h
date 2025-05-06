@@ -2,13 +2,26 @@
 #include "Wine.h"
 #include <string>
 
-	const static string GLASS_CONTAINER = "Glass";
-	const static string PAKAGE_CONTAINER = "Tetra Pack";
+enum  ContainerType {
+	Glass,
+	TetraPack
+};
+
+
+inline string getContainerName(ContainerType type) {
+	switch (type) {
+	case ContainerType::Glass: return "Glass";
+	case ContainerType::TetraPack: return "Tetra Pack";
+	default: return "Unknown";
+	}
+}
+
+
 class PackagedWine : public Wine
 {
 private:
 	double pacW_volume;
-	string pacW_package;
+	ContainerType pacW_package;
 
 public:
 	PackagedWine();

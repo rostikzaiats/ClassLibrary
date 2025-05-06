@@ -69,7 +69,7 @@ TEST(PackagedWineTest, ChangePackage) {
     wine.changePackage();
     ostringstream os;
     wine.printOn(os);
-    EXPECT_NE(os.str().find(PAKAGE_CONTAINER), string::npos);
+    EXPECT_NE(os.str().find(getContainerName(ContainerType::TetraPack)), string::npos);
 }
 
 TEST(PackagedWineTest, DivisionOperator) {  
